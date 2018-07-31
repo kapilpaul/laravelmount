@@ -7,4 +7,29 @@ Easy installation package for laravel app.
 ### Requirements
     Laravel >=5.6
     PHP >= 7.1 
+    
+### Installation
+1. To use this package run below command from your terminal
+
+    ```
+    composer require kapilpaul/laravelmount
+    ```
+2. Laravel 5.5 and up Uses package auto discovery feature, do not need to add in providers in config/app.php.
+   
+3. Publish the assets folder.
+
+    ```
+    php artisan vendor:publish --tag=laravelmount
+    ``` 
+4. Installation route is /install/ 
+
+## Author
+
+[Kapil Paul](http://kapilpaul.me) :email: [Email Me](mailto:kapilpaul007@gmail.com)
+
+## License
+
+This project is licensed under the MIT License - see the [License File](LICENSE) for details
+
+    
   

@@ -24,5 +24,12 @@
         "psr-4": {
             "KapilPaul\\LaravelMount\\": "src/"
         }
-    }  
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "KapilPaul\\LaravelMount\\LaravelMountServiceProvider"
+            ]
+        }
+    }
 }
