@@ -4,8 +4,11 @@
     "description": "Installer file for your laravel app. You can just install like any cms.",
     "type" : "library",
     "keywords": [
-        'laravel mount',
-
+        "laravel",
+        "mount",
+        "laravelmount",
+        "laravelinstaller",
+        "laravelappinstaller"
     ],
     "authors": [
         {
