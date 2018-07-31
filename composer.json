@@ -1,0 +1,25 @@
+{
+    "name": "kapilpaul/laravelmount",
+    "license": "MIT",
+    "description": "Installer file for your laravel app. You can just install like any cms.",
+    "type" : "library",
+    "keywords": [
+        'laravel mount',
+
+    ],
+    "authors": [
+        {
+            "name": "Kapil Paul",
+            "email": "kapilpaul007@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "illuminate/support": "5.6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "KapilPaul\\LaravelMount\\": "src/"
+        }
+    }  
+}

@@ -1,0 +1,32 @@
+.btn-square{
+    border-radius: 0;
+}
+.fz13{
+    font-size: 13px;
+}
+.mt80{
+    margin-top: 80px;
+}
+.mb0{
+    margin-bottom: 0;
+}
+.table{
+    border-right: 1px solid #ddd;
+    border-left: 1px solid#ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.requirements td p{
+    margin-bottom: 0;
+}
+
+#application .panel-default>.panel-heading {
+    color: #fff;
+    background-color: #79c29a;
+    border-color: #79c29a;
+}
+#application .panel-title{
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
