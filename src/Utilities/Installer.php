@@ -23,63 +23,59 @@ class Installer
         $requirementsCheck = static::getAllRequirements();
 
         if (version_compare(PHP_VERSION, static::checkRequiredPHPversion(), '<=')) {
-            $requirements['php'] = trans('install.php.version', ['version' => static::checkRequiredPHPversion()]);
+            $requirements['php'] = "PHP Version should be ". static::checkRequiredPHPversion() ." or Higher!";
         }
 
         if (ini_get('safe_mode')) {
-            $requirements['safe_mode'] = trans('install.requirements.disabled', ['feature' => 'Safe Mode']);
-        }
-
-        if (ini_get('safe_mode')) {
-            $requirements['safe_mode'] = trans('install.requirements.disabled', ['feature' => 'Safe Mode']);
+            $requirements['safe_mode'] = 'Safe Mode should be disabled.';
         }
 
         if (ini_get('register_globals')) {
-            $requirements['register_globals'] = trans('install.requirements.disabled', ['feature' => 'Register Globals']);
+            $requirements['register_globals'] = 'Register Globals should be disabled.';
         }
 
         if (ini_get('magic_quotes_gpc')) {
-            $requirements['magic_quotes_gpc'] = trans('install.requirements.disabled', ['feature' => 'Magic Quotes']);
+            $requirements['magic_quotes_gpc'] = 'Magic Quotes should be disabled.';
         }
 
         if (!ini_get('file_uploads')) {
-            $requirements['file_uploads'] = trans('install.requirements.enabled', ['feature' => 'File Uploads']);
+            $requirements['file_uploads'] = 'File Uploads should be enabled.';
         }
 
         if (!class_exists('PDO')) {
-            $requirements['PDO'] = trans('install.requirements.extension', ['extension' => 'MySQL PDO']);
+            $requirements['PDO'] = "MySQL PDO extension needs to be loaded!";
         }
 
         if (!extension_loaded('openssl')) {
-            $requirements['openssl'] = trans('install.requirements.extension', ['extension' => 'OpenSSL']);
+            $requirements['openssl'] = "OpenSSL extension needs to be loaded!";
         }
 
         if (!extension_loaded('tokenizer')) {
-            $requirements[] = trans('install.requirements.extension', ['extension' => 'Tokenizer']);
+            $requirements[] = "Tokenizer extension needs to be loaded!";
         }
 
         if (!extension_loaded('mbstring')) {
-            $requirements['mbstring'] = trans('install.requirements.extension', ['extension' => 'mbstring']);
+            $requirements['mbstring'] = "mbstring extension needs to be loaded!";
         }
 
         if (!extension_loaded('curl')) {
-            $requirements['curl'] = trans('install.requirements.extension', ['extension' => 'cURL']);
+            $requirements['curl'] = "cURL extension needs to be loaded!";
         }
 
         if (!extension_loaded('xml')) {
-            $requirements['xml'] = trans('install.requirements.extension', ['extension' => 'XML']);
+            $requirements['xml'] = "XML extension needs to be loaded!";
         }
 
         if (!extension_loaded('zip')) {
-            $requirements['zip'] = trans('install.requirements.extension', ['extension' => 'ZIP']);
+            $requirements['zip'] = "ZIP extension needs to be loaded!";
         }
 
         if (!extension_loaded('fileinfo')) {
-            $requirements['fileinfo'] = trans('install.requirements.extension', ['extension' => 'FileInfo']);
+            $requirements['fileinfo'] = "FileInfo extension needs to be loaded!";
         }
 
         if (!is_writable(base_path('storage/app'))) {
-            $requirements['storage_app'] = trans('install.requirements.directory', ['directory' => 'storage/app']);
+            $requirements['storage_app'] = "storage/app directory needs to be writable!";
         }
 
         if(! File::exists(base_path('storage/app/uploads'))) {
@@ -87,15 +83,15 @@ class Installer
         }
 
         if (!is_writable(base_path('storage/app/uploads'))) {
-            $requirements['storage_app_uploads'] = trans('install.requirements.directory', ['directory' => 'storage/app/uploads']);
+            $requirements['storage_app_uploads'] = "storage/app/uploads directory needs to be writable!";
         }
 
         if (!is_writable(base_path('storage/framework'))) {
-            $requirements['storage_framework'] = trans('install.requirements.directory', ['directory' => 'storage/framework']);
+            $requirements['storage_framework'] = "storage/framework directory needs to be writable!";
         }
 
         if (!is_writable(base_path('storage/logs'))) {
-            $requirements['storage_logs'] = trans('install.requirements.directory', ['directory' => 'storage/logs']);
+            $requirements['storage_logs'] = "storage/logs directory needs to be writable!";
         }
 
 
@@ -148,6 +144,7 @@ class Installer
                 "APP_ENV=local\n".
                 "APP_KEY=\n".
                 "APP_DEBUG=true\n".
+                "APP_INSTALLED=false\n".
                 "APP_URL=http://localhost\n\n".
                 "LOG_CHANNEL=stack\n\n".
                 "DB_CONNECTION=mysql\n".
@@ -252,12 +249,13 @@ class Installer
 
         // Update .env file
         static::updateEnv([
-            'DB_HOST'       =>  $host,
-            'DB_PORT'       =>  $port,
-            'DB_DATABASE'   =>  $database,
-            'DB_USERNAME'   =>  $username,
-            'DB_PASSWORD'   =>  $password,
-            'DB_PREFIX'     =>  $prefix,
+            'DB_CONNECTION'     =>  $dbConnection,
+            'DB_HOST'           =>  $host,
+            'DB_PORT'           =>  $port,
+            'DB_DATABASE'       =>  $database,
+            'DB_USERNAME'       =>  $username,
+            'DB_PASSWORD'       =>  $password,
+            'DB_PREFIX'         =>  $prefix,
         ]);
 
         $con = $dbConnection;
@@ -315,6 +313,10 @@ class Installer
                     $env[$env_key] = $env_value;
                 }
             }
+        }
+
+        if(isset($data['APP_INSTALLED'])) {
+            $env['APP_INSTALLED'] = 'APP_INSTALLED' . '=' . $data['APP_INSTALLED'];
         }
 
         $env = implode("\n", $env);
