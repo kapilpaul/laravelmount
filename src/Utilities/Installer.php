@@ -345,7 +345,6 @@ class Installer
             }
         }
 
-
         $env = implode("\n", $env);
 
         file_put_contents(base_path('.env'), $env);

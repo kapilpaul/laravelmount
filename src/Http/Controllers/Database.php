@@ -32,6 +32,14 @@ class Database extends Controller
             return redirect()->route('requirement.show')->with(['error' => $message]);
         }
 
+        Installer::updateEnv([
+            'APP_NAME'          =>  $request['app_name'],
+            'APP_ENV'           =>  $request['app_env'],
+            'APP_DEBUG'         =>  $request['app_debug'],
+            'APP_LOG_LEVEL'     =>  $request['app_log_level'],
+            'APP_URL'           =>  $request['app_url'],
+        ]);
+
         // Make the final touches
         Installer::finalTouches();
 
