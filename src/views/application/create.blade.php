@@ -257,7 +257,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="pusher_app_secret">Pusher App Secret/label
+                                        <label for="pusher_app_secret">Pusher App Secret/label>
                                             <input class="form-control" type="text" name="pusher_app_secret" id="pusher_app_secret"/>
 
                                             @if ($errors->has('pusher_app_secret'))

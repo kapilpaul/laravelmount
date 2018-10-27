@@ -1,8 +1,7 @@
 @include('laravelmount::layouts.header')
 
 <body>
-    <div class="image-container set-full-height" style="background-image: url('{{ asset('laravelmount/img/paper-5.jpg')
-    }}');background-attachment: fixed;" id="laravelmount">
+    <div class="image-container set-full-height" style="background-image: url('{{ asset('public/laravelmount/img/paper-5.jpg') }}'); background-attachment: fixed;" id="laravelmount">
         <!--   Big container   -->
         <div class="container">
             <div class="row">

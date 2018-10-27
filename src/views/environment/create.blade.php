@@ -70,11 +70,11 @@
                 <label>App Debug</label>
                 <div class="radio">
                     <label class="radio-inline" for="app_debug_true">
-                        <input type="radio" name="app_debug" id="app_debug_true" value="true" />
+                        <input type="radio" name="app_debug" id="app_debug_true" value=true/>
                         True
                     </label>
                     <label class="radio-inline" for="app_debug_false">
-                        <input type="radio" name="app_debug" id="app_debug_false" value="false" checked/>
+                        <input type="radio" name="app_debug" id="app_debug_false" value=false checked/>
                         False
                     </label>
                 </div>

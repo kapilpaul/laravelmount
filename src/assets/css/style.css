@@ -30,11 +30,8 @@
     cursor: pointer;
 }
 
-.success {
-    padding: 50px 0;
-}
 .check_mark {
-    width: 130px;
+    width: 80px;
     height: 130px;
     margin: 0 auto;
 }
@@ -312,3 +309,4 @@ button {
         -webkit-transform: rotate(-405deg);
     }
 }
+

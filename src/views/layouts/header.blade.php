@@ -12,14 +12,14 @@
     <meta name="viewport" content="width=device-width" />
 
     <!-- CSS Files -->
-    <link href="{{ asset('laravelmount/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('laravelmount/css/paper-bootstrap-wizard.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/laravelmount/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/laravelmount/css/paper-bootstrap-wizard.css') }}" rel="stylesheet" />
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{ asset('laravelmount/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/laravelmount/css/style.css') }}" rel="stylesheet" />
 
     <!-- Fonts and Icons -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <link href="{{ asset('laravelmount/css/themify-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/laravelmount/css/themify-icons.css') }}" rel="stylesheet">
 </head>

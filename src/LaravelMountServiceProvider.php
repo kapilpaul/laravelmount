@@ -27,13 +27,15 @@ class LaravelMountServiceProvider extends ServiceProvider
         if (!$this->app->routesAreCached()) {
             require __DIR__ . '/routes.php';
         }
-        $this->loadViewsFrom(__DIR__.'/views', 'laravelmount');
+        $this->loadViewsFrom(__DIR__ . '/views', 'laravelmount');
 
-        $this->publishes([
-            __DIR__.'/assets' => public_path('laravelmount'),
-        ], 'laravelmount');
+        $this->publishes(
+            [
+                __DIR__ . '/assets' => public_path('laravelmount'),
+            ], 'laravelmount'
+        );
 
-        $router->middlewareGroup('install',[CanInstall::class]);
+        $router->middlewareGroup('install', [CanInstall::class]);
     }
 
     /**
